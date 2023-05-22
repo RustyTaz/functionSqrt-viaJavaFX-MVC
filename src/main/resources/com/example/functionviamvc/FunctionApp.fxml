@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.Scene?>
+
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.functionviamvc.FunctionController">
+    <TableView fx:id="table" editable="true" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="X" editable="true" fx:id="xColumn" prefWidth="100">
+                <cellValueFactory>
+                    <javafx.scene.control.cell.PropertyValueFactory property="x"/>
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn text="Y" fx:id="yColumn" prefWidth="100">
+                <cellValueFactory>
+                    <javafx.scene.control.cell.PropertyValueFactory property="y"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox spacing="10">
+        <Button text="Add" onAction="#addFunctionData" />
+        <Button text="Delete" onAction="#deleteFunctionData" />
+    </HBox>
+    <LineChart fx:id="chart" animated="false">
+        <xAxis>
+            <NumberAxis label="X" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Y" />
+        </yAxis>
+    </LineChart>
+</VBox>
